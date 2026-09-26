@@ -22,8 +22,9 @@ class BorrowiseLogin:
         self.bg_color = "#F5FAFF"
         self.dark_blue = "#123F87"
         self.blue = "#1677E8"
+        self.medium_blue = "#4B96E8"
         self.light_blue = "#9CCCF5"
-        self.lighter_blue = "#DCEEFF"
+        self.lighter_blue = "#E8F4FF"
         self.border_blue = "#C8DDF2"
         self.text_gray = "#60799B"
 
@@ -39,126 +40,21 @@ class BorrowiseLogin:
             highlightthickness=0
         )
 
-        self.background.pack()
+        self.background.place(
+            x=0,
+            y=0
+        )
 
         # ==================================================
-        # TOP-LEFT DESIGN
+        # SIDE DESIGNS
         # ==================================================
 
-        self.create_top_design()
-
         # ==================================================
-        # BOTTOM-RIGHT DESIGN
-        # ==================================================
-
-        self.create_bottom_design()
-
-        # ==================================================
-        # BORROWISE LOGO
+        # CENTER CONTENT
         # ==================================================
 
         self.create_logo()
-
-        # ==================================================
-        # LOGIN FORM
-        # ==================================================
-
         self.create_login_form()
-
-
-    # ======================================================
-    # TOP LEFT BLUE DESIGN
-    # ======================================================
-
-    def create_top_design(self):
-
-        # Dark blue curved shape
-        self.background.create_arc(
-            -170, -170,
-            300, 300,
-            start=200,
-            extent=100,
-            fill="#2475D1",
-            outline=""
-        )
-
-        # Medium blue shape
-        self.background.create_arc(
-            -120, -120,
-            360, 330,
-            start=195,
-            extent=85,
-            fill="#4B96E8",
-            outline=""
-        )
-
-        # Light blue curved shape
-        self.background.create_arc(
-            -60, -100,
-            400, 390,
-            start=195,
-            extent=72,
-            fill="#9CCCF5",
-            outline=""
-        )
-
-        # White curved layer
-        self.background.create_arc(
-            20, -70,
-            430, 420,
-            start=195,
-            extent=62,
-            fill="#E8F4FF",
-            outline=""
-        )
-
-
-    # ======================================================
-    # BOTTOM RIGHT BLUE DESIGN
-    # ======================================================
-
-    def create_bottom_design(self):
-
-        # Dark blue outer curve
-        self.background.create_arc(
-            730, 440,
-            1180, 900,
-            start=20,
-            extent=100,
-            fill="#2475D1",
-            outline=""
-        )
-
-        # Medium blue curve
-        self.background.create_arc(
-            670, 420,
-            1140, 850,
-            start=20,
-            extent=95,
-            fill="#4B96E8",
-            outline=""
-        )
-
-        # Light blue curve
-        self.background.create_arc(
-            600, 390,
-            1090, 790,
-            start=20,
-            extent=85,
-            fill="#9CCCF5",
-            outline=""
-        )
-
-        # White/light curve
-        self.background.create_arc(
-            540, 370,
-            1040, 740,
-            start=20,
-            extent=75,
-            fill="#E8F4FF",
-            outline=""
-        )
-
 
     # ======================================================
     # BORROWISE LOGO
@@ -167,66 +63,66 @@ class BorrowiseLogin:
     def create_logo(self):
 
         # --------------------------------------------------
-        # Cube logo
+        # CUBE LOGO
         # --------------------------------------------------
 
         cx = 500
-        cy = 205
+        cy = 145
 
-        # Top of cube
+        # Top
         self.background.create_polygon(
-            cx, cy - 55,
-            cx + 60, cy - 20,
-            cx, cy + 15,
-            cx - 60, cy - 20,
-            fill="#F4FAFF",
+            cx, cy - 40,
+            cx + 45, cy - 15,
+            cx, cy + 12,
+            cx - 45, cy - 15,
+            fill="#F5FAFF",
             outline="#1555A5",
-            width=4
+            width=3
         )
 
         # Left side
         self.background.create_polygon(
-            cx - 60, cy - 20,
-            cx, cy + 15,
-            cx, cy + 75,
-            cx - 60, cy + 40,
+            cx - 45, cy - 15,
+            cx, cy + 12,
+            cx, cy + 62,
+            cx - 45, cy + 35,
             fill="#BFE1FA",
             outline="#1555A5",
-            width=4
+            width=3
         )
 
         # Right side
         self.background.create_polygon(
-            cx, cy + 15,
-            cx + 60, cy - 20,
-            cx + 60, cy + 40,
-            cx, cy + 75,
+            cx, cy + 12,
+            cx + 45, cy - 15,
+            cx + 45, cy + 35,
+            cx, cy + 62,
             fill="#8CC9F1",
             outline="#1555A5",
-            width=4
+            width=3
         )
 
         # --------------------------------------------------
-        # Borrowise title
+        # BORROWISE TITLE
         # --------------------------------------------------
 
         self.background.create_text(
             500,
-            365,
+            245,
             text="Borrowise",
-            font=("Arial", 44, "bold"),
+            font=("Arial", 38, "bold"),
             fill="#0E3B82"
         )
 
         # --------------------------------------------------
-        # Tagline
+        # TAGLINE
         # --------------------------------------------------
 
         self.background.create_text(
             500,
-            405,
+            282,
             text="Borrow  •  Track  •  Return",
-            font=("Arial", 18, "bold"),
+            font=("Arial", 15, "bold"),
             fill="#5A78A0"
         )
 
@@ -237,9 +133,9 @@ class BorrowiseLogin:
 
     def create_login_form(self):
 
-        # --------------------------------------------------
-        # Username box
-        # --------------------------------------------------
+        # ==================================================
+        # USERNAME
+        # ==================================================
 
         self.username_frame = tk.Frame(
             self.root,
@@ -249,35 +145,35 @@ class BorrowiseLogin:
         )
 
         self.username_frame.place(
-            x=417,
-            y=485,
-            width=570,
-            height=64,
+            x=500,
+            y=350,
+            width=420,
+            height=58,
             anchor="center"
         )
 
         # Username icon
         self.create_user_icon(
             self.username_frame,
-            43,
-            32
+            35,
+            29
         )
 
-        # Username text
+        # Username entry
         self.username_entry = tk.Entry(
             self.username_frame,
-            font=("Arial", 15),
-            fg="#60799B",
+            font=("Arial", 14),
+            fg=self.text_gray,
             bg="#FFFFFF",
             bd=0,
             relief="flat"
         )
 
         self.username_entry.place(
-            x=90,
-            y=18,
-            width=450,
-            height=30
+            x=70,
+            y=15,
+            width=320,
+            height=28
         )
 
         self.username_entry.insert(
@@ -286,9 +182,9 @@ class BorrowiseLogin:
         )
 
 
-        # --------------------------------------------------
-        # Password box
-        # --------------------------------------------------
+        # ==================================================
+        # PASSWORD
+        # ==================================================
 
         self.password_frame = tk.Frame(
             self.root,
@@ -298,34 +194,35 @@ class BorrowiseLogin:
         )
 
         self.password_frame.place(
-            x=417,
-            y=570,
-            width=570,
-            height=64,
+            x=500,
+            y=420,
+            width=420,
+            height=58,
             anchor="center"
         )
 
         # Lock icon
         self.create_lock_icon(
             self.password_frame,
-            43,
-            32
+            35,
+            29
         )
 
-        # Password text
-        self.password_entry = tk.Entry
-      (self.password_frame,
-            font=("Arial", 15),
-            fg="#60799B",
+        # Password entry
+        self.password_entry = tk.Entry(
+            self.password_frame,
+            font=("Arial", 14),
+            fg=self.text_gray,
             bg="#FFFFFF",
             bd=0,
-            relief="flat")
+            relief="flat"
+        )
 
         self.password_entry.place(
-            x=90,
-            y=18,
-            width=390,
-            height=30
+            x=70,
+            y=15,
+            width=280,
+            height=28
         )
 
         self.password_entry.insert(
@@ -337,7 +234,7 @@ class BorrowiseLogin:
         self.eye_button = tk.Button(
             self.password_frame,
             text="●",
-            font=("Arial", 15),
+            font=("Arial", 12),
             fg="#557AA7",
             bg="#FFFFFF",
             bd=0,
@@ -346,21 +243,21 @@ class BorrowiseLogin:
         )
 
         self.eye_button.place(
-            x=510,
-            y=13,
-            width=40,
+            x=365,
+            y=11,
+            width=35,
             height=35
         )
 
 
-        # --------------------------------------------------
+        # ==================================================
         # LOGIN BUTTON
-        # --------------------------------------------------
+        # ==================================================
 
         self.login_button = tk.Button(
             self.root,
             text="LOGIN   →",
-            font=("Arial", 18, "bold"),
+            font=("Arial", 16, "bold"),
             fg="white",
             bg="#1677E8",
             activebackground="#1269D0",
@@ -371,10 +268,10 @@ class BorrowiseLogin:
         )
 
         self.login_button.place(
-            x=417,
-            y=661,
-            width=570,
-            height=66,
+            x=500,
+            y=495,
+            width=420,
+            height=58,
             anchor="center"
         )
 
@@ -387,29 +284,29 @@ class BorrowiseLogin:
 
         canvas = tk.Canvas(
             parent,
-            width=45,
-            height=45,
+            width=40,
+            height=40,
             bg="white",
             highlightthickness=0
         )
 
         canvas.place(
-            x=x - 22,
-            y=y - 22
+            x=x - 20,
+            y=y - 20
         )
 
         # Head
         canvas.create_oval(
-            17, 4,
-            29, 16,
+            14, 3,
+            26, 15,
             fill="#557AA7",
             outline=""
         )
 
         # Body
         canvas.create_oval(
-            8, 18,
-            38, 40,
+            7, 17,
+            33, 37,
             fill="#557AA7",
             outline=""
         )
@@ -423,40 +320,42 @@ class BorrowiseLogin:
 
         canvas = tk.Canvas(
             parent,
-            width=45,
-            height=45,
+            width=40,
+            height=40,
             bg="white",
             highlightthickness=0
         )
 
         canvas.place(
-            x=x - 22,
-            y=y - 22
+            x=x - 20,
+            y=y - 20
         )
 
         # Lock body
         canvas.create_rectangle(
-            10, 18,
-            35, 39,
+            9, 17,
+            31, 36,
             fill="#557AA7",
             outline=""
         )
 
         # Lock shackle
         canvas.create_arc(
-            14, 5,
-            31, 27,
+            12, 4,
+            28, 24,
             start=180,
             extent=180,
             style="arc",
             outline="#557AA7",
-            width=5
+            width=4
         )
 
         # Keyhole
         canvas.create_oval(
-            21, 23,
-            25, 27,
+            18,
+            22,
+            22,
+            26,
             fill="white",
             outline=""
         )
@@ -466,7 +365,7 @@ class BorrowiseLogin:
 # START PROGRAM
 # ==========================================================
 
-if _name_ == "_main_":
+if __name__ == "__main__":
 
     root = tk.Tk()
 
