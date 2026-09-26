@@ -233,7 +233,7 @@ class BorrowiseLogin:
         # Eye button
         self.eye_button = tk.Button(
             self.password_frame,
-            text="●",
+            text="👁 ",
             font=("Arial", 12),
             fg="#557AA7",
             bg="#FFFFFF",
@@ -256,7 +256,7 @@ class BorrowiseLogin:
 
         self.login_button = tk.Button(
             self.root,
-            text="LOGIN   →",
+            text="LOGIN ",
             font=("Arial", 16, "bold"),
             fg="white",
             bg="#1677E8",
@@ -331,31 +331,68 @@ class BorrowiseLogin:
             y=y - 20
         )
 
-        # Lock body
-        canvas.create_rectangle(
-            9, 17,
-            31, 36,
-            fill="#557AA7",
-            outline=""
-        )
+        lock_color = "#557AA7"
 
-        # Lock shackle
+        # --------------------------------------------------
+        # LOCK SHACKLE
+        # --------------------------------------------------
+
+        # Curved upper part of lock
         canvas.create_arc(
-            12, 4,
-            28, 24,
-            start=180,
+            10, 4,
+            30, 24,
+            start=0,
             extent=180,
             style="arc",
-            outline="#557AA7",
+            outline=lock_color,
             width=4
         )
 
-        # Keyhole
+        # Left part of shackle
+        canvas.create_line(
+            10, 14,
+            10, 19,
+            fill=lock_color,
+            width=4
+        )
+
+        # Right part of shackle
+        canvas.create_line(
+            30, 14,
+            30, 19,
+            fill=lock_color,
+            width=4
+        )
+
+        # --------------------------------------------------
+        # LOCK BODY
+        # --------------------------------------------------
+
+        canvas.create_rectangle(
+            8, 17,
+            32, 36,
+            fill=lock_color,
+            outline=""
+        )
+
+        # --------------------------------------------------
+        # KEYHOLE
+        # --------------------------------------------------
+
         canvas.create_oval(
             18,
+            21,
             22,
-            22,
-            26,
+            25,
+            fill="white",
+            outline=""
+        )
+
+        canvas.create_rectangle(
+            19,
+            24,
+            21,
+            29,
             fill="white",
             outline=""
         )
